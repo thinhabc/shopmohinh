@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Modal";
+}
+
+<div class="modals js-modal">
+    <div class="modal-close js-modal-close">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="product-modal js-modal-product">
+        <div class="img-modal">
+            <img src="~/@Model.AnhBia" alt="">
+        </div>
+        <div class="product-detail">
+            <div class="title">
+                <h1>
+                    @Model.TenMoHinh
+                </h1>
+            </div>
+            <div class="rice">
+                <span>Giá : @Model.GiaBan VND</span>
+            </div>
+            <div class="product-desc">
+                @Html.Raw(Model.MoTa)
+            </div>
+            <form class="add-cart">
+                <input type="number" placeholder="1" class="number" max="5" min="1">
+                <button class="add">Thêm vào giỏ hàng</button>
+            </form>
+        </div>
+    </div>
+</div>
+

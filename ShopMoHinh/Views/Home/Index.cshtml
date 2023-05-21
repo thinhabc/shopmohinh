@@ -1,0 +1,242 @@
+﻿@model IEnumerable<ShopMoHinh.Models.MoHinh>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shopMohinh.cshtml";
+}
+
+
+<div class="banner">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Asset/Images/banner-2.....jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-caption ">
+                    <h3>Mang đến cho bạn </h3>
+                    <P class="heading">Sản phẩm giá rẻ chất lượng</P>
+                    <p class="sub">Mô hình Figure là nơi đáng tin cậy để dành cho những người theo đuổi đam mê, vẻ đẹp của các nhân vật mình yêu thích</p>
+                    <button type="button" class="btn btn-primary btn-lg">Khám phá ngay</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Asset/Images/banner-3.....jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h4>Theo dõi shop để nhận ngay ưu đãi</h4>
+                    <p class="heading">Đã chơi là phải chất <br> Nếu không thì đem cất</p>
+                    <button type="button" class="btn btn-primary btn-lg">Follow ngay</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Tìm hiểu thêm</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Asset/Images/banner-4.....jpeg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="banner-product">
+        <div class="product-banner">
+            <a href="">
+                <div class="imgbox">
+                    <img src="~/Asset/Images/mo-hinh-dragon-ball-banner..jpeg" alt="">
+                </div>
+            </a>
+            <div class="content">
+                <h6>Sở hữu ngay</h6>
+                <p>Mô hình Dragon Ball</p>
+            </div>
+        </div>
+        <div class="product-banner">
+            <a href="">
+                <div class="imgbox">
+                    <img src="~/Asset/Images/mo-hinh-one-piece-banner..jpeg" alt="">
+                </div>
+            </a>
+            <div class="content">
+                <h6>Sở hữu ngay</h6>
+                <p>Mô hình One Piece</p>
+            </div>
+        </div>
+        <div class="product-banner">
+            <a href="">
+                <div class="imgbox">
+                    <img src="~/Asset/Images/mo-hinh-naruto-banner..jpeg" alt="">
+                </div>
+            </a>
+            <div class="content">
+                <h6>Sở hữu ngay</h6>
+                <p>Mô hình Naruto</p>
+            </div>
+        </div>
+    </div>
+    <div class="banner-product mb-20">
+        <div class="product-banner">
+            <a href="">
+                <div class="imgbox">
+                    <img src="~/Asset/Images/mo-hinh-pokemon-banner..jpeg" alt="">
+                </div>
+            </a>
+            <div class="content">
+                <h6>Sở hữu ngay</h6>
+                <p>Mô hình Pokemon</p>
+            </div>
+        </div>
+        <div class="product-banner_2">
+            <a href="">
+                <div class="imgbox">
+                    <img src="~/Asset/Images/mo-hinh-anime-banner..jpeg" alt="">
+                </div>
+            </a>
+            <div class="content">
+                <h6>Sở hữu ngay</h6>
+                <p>Mô hình Anime</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="max-width: 1080px;">
+    <div class="title">
+        <h1 class="text-uc">Mô hình figure bán chạy nhất</h1>
+    </div>
+    <section>
+        <div class="move">
+            <span>&#139</span>
+            <span>&#155</span>
+        </div>
+        @foreach (var mohinh in Model)
+        {
+            <div class="product">
+                <a href="@Url.Action("Details","Home", new { id = mohinh.MaMoHinh })">
+                    <div class="overlay"></div>
+                    <picture>
+                        <img src="~/@mohinh.AnhBia" alt="@mohinh.TenMoHinh">
+                    </picture>
+                    <div class="details">
+                        <small class="text-uc">mô hình anime</small>
+                        <p>@mohinh.TenMoHinh-</p>
+                        <span>@mohinh.GiaBan VND</span>
+                    </div>
+
+                    <div class="button view ">
+                       <span class="js-view">Quick view</span>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </section>
+</div>
+
+<div class="container" style="max-width: 1080px;">
+    <div class="title">
+        <h1 class="text-uc">Mô hình figure mới nhất</h1>
+    </div>
+
+    <div class="product-list">
+        @foreach (var mohinh in Model)
+        {
+             
+        <div class="product-new" style="height: 280px;">
+            <a href="@Url.Action("Details","Home", new { id = mohinh.MaMoHinh })">
+                <picture>
+                    <img src="~/@mohinh.AnhBia" alt="">
+                </picture>
+                <div class="details size">
+                    <small class="text-uc">mô hình anime</small>
+                    <p>@mohinh.TenMoHinh</p>
+                    <span>@mohinh.GiaBan VND</span>
+                    <div class="button js-view">
+                        <span>Quick view</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="container" style="max-width: 1080px;">
+    <div class="title">
+        <h1 class="text-uc">Tin tức anime</h1>
+    </div>
+    <div class="blog">
+        <div class="blog-list">
+            <div class="img">
+                <img src="~/Asset/Images/tin1.jpg" alt="">
+            </div>
+            <div class="content-blog">
+                <h5>Uchiha Obito Với 15 Điều Thú Vị Có Thể Bạn Chưa Biết Về Anh Chàng Này</h5>
+                <p>Uchiha Obito chính là một trong những nhân vật phản diện phức tạp nhất trong [...]</p>
+            </div>
+        </div>
+        <div class="blog-list">
+            <div class="img">
+                <img src="~/Asset/Images/tin2.jpg" alt="">
+            </div>
+            <div class="content-blog">
+                <h5>Top 20 Anime Buồn Hay Nhất Thách Bạn Không Khóc</h5>
+                <p>Đôi khi chúng ta cần một hành động nhịp độ cao hoặc một số bộ [...]</p>
+            </div>
+        </div>
+        <div class="blog-list">
+            <div class="img">
+                <img src="~/Asset/Images/tin3.jpg" alt="">
+            </div>
+            <div class="content-blog">
+                <h5>Top 12 Bộ Anime Dễ Thương Siêu Hay Mà Bạn Không Thể Bỏ Qua</h5>
+                <p>Khi nhắc đến những bộ anime dễ thương chúng ta không thể bỏ qua được [...]</p>
+            </div>
+        </div>
+        <div class="blog-list">
+            <div class="img">
+                <img src="~/Asset/Images/tin4.jpg" alt="">
+            </div>
+            <div class="content-blog">
+                <h5>Loli là gì? BB là gì? Giải thích và định Nghĩa chính xác nhất!</h5>
+                <p>Chắc hẳn các bạn khi xem anime có nhưng từ ngữ lạ lẫm như “Loli”và [...]</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="max-width: 1080px;">
+    <div class="title">
+        <h1 class="text-uc">Luôn làm các tín đồ figure hài lòng</h1>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="section-title">
+            <div class="inner">
+                <span><i class="fa-brands fa-envira"></i></span>
+                <h3>KÝ GỬI BÁN HỘ</h3>
+                <p>Bạn có nhu cầu thanh lý figure? Hãy liên hệ với tụi mình nhé</p>
+            </div>
+            <div class="inner">
+                <span><i class="fa-solid fa-rocket"></i></span>
+                <h3>GIAO HÀNG NHANH</h3>
+                <p>Vận chuyển trên toàn quốc</p>
+            </div>
+            <div class="inner">
+                <span><i class="fa-solid fa-truck-moving"></i></span>
+                <h3>MIỄN PHÍ GIAO HÀNG</h3>
+                <p>Với các đơn hàng trên 1 triệu đồng</p>
+            </div>
+            <div class="inner">
+                <span><i class="fa-solid fa-headset"></i></span>
+                <h3>HỖ TRỢ 24/7</h3>
+                <p>Phục vụ tân tình, nhiệt huyết hết mình với khách hàng</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

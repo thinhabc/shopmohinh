@@ -1,0 +1,94 @@
+﻿@using ShopMoHinh.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Views/shopMohinh.cshtml";
+}
+
+<h2 style="text-align: center; margin-top:150px">Đơn Đặt Hàng</h2>
+@{ 
+    KhachHang kh = (KhachHang)Session["TaiKhoan"];
+}
+
+<div class="delivery">
+    <div class="container">
+        <div class="delivery_top-wrap">
+            <div class="delivery_top">
+                <div class="delivery_top-delivery delivery_top-item">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="delivery_top-address delivery_top-item">
+                    <i class="fa-solid fa-location-pin"></i>
+                </div>
+                <div class="delivery_top-payment delivery_top-item">
+                    <i class="fa-brands fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="delivery_content">
+            <div class="delivery_content-left">
+
+                <!-- Phần nhập thông tin đăng ký -->
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="delivery_content-left-input-top row">
+                        <div class="delivery_content-left-input-top-item">
+                            <label for="">Họ tên <span style="color: red;">*</span></label>
+                            <input type="text" value="@kh.HoTen" readonly />
+                        </div>
+                        <div class="delivery_content-left-input-top-item">
+                            <label for="">Số điện thoại <span style="color: red;">*</span></label>
+                            <input type="text" value="@kh.DienThoaiKH" readonly />
+                        </div>
+                        <div class="delivery_content-left-input-top-item">
+                            <label for="">Ngày Đặt Hàng<span style="color: red;">*</span></label>
+                            <input type="text" value="@DateTime.Now.ToShortDateString()" readonly>
+                        </div>
+                        <div class="delivery_content-left-input-top-item">
+                            <label for="">Ngày Giao Hàng <span style="color: red;">*</span></label>
+                            <input type="date" name="NgayGiao" id="">
+                            <p>@ViewBag.thongbao</p>
+                        </div>
+                    </div>
+                    <div class="delivery_content-left-input-bottom">
+                        <label for="">Địa chỉ <span style="color: red;">*</span></label>
+                        <input type="text" value="@kh.DiachiKH" readonly>
+                    </div>
+                    <div class="delivery_content-left-button">
+                        <a href="@Url.Action("Cart", "Cart")"><span>&#171;</span><p>Quay lại giỏ hàng</p></a>
+                        <button type="submit"><p style="font-weight: bold;">THANH TOÁN VÀ GIAO HÀNG</p></button>
+                    </div>
+                }
+
+            </div>
+
+            <!-- Delivery Right -->
+            <div class="delivery_content-right">
+                <table>
+                    <tr style="text-align:center">
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.tenSP</td>
+                            <td>@item.soLuong</td>
+                            <td><p>@item.thanhTien<sup>đ</sup></p></td>
+                        </tr>
+
+                    }
+                    <tr>
+                        <td style='font-weight: bold;' colspan="3">Tổng tiền hàng</td>
+                        <td style='font-weight: bold;' colspan="3"><p>@String.Format("{0:0,0}", ViewBag.tongtien)<sup>đ</sup></p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

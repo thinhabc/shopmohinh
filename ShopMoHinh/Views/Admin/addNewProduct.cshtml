@@ -1,0 +1,113 @@
+﻿@model ShopMoHinh.Models.MoHinh
+
+@{
+    ViewBag.Title = "addNewProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    h4 {
+        width: 100% !important;
+    }
+
+    .form-horizontal {
+        display: flex;
+        justify-content: initial;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px
+    }
+
+    .form-group {
+        width: 335px;
+        padding: 20px 0;
+    }
+    select{
+        padding: 6px 12px !important;
+    }
+    .flex-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btn-new {
+        padding: 6px 12px;
+        background: #0d6efd;
+        color: #fff;
+    }
+</style>
+<div class="container">
+    <h4 style="text-align:center; color:springgreen">THÊM MÔ HÌNH MỚI</h4>
+
+    @using (Html.BeginForm("addNewProduct", "Admin", FormMethod.Post, new { @enctype ="multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenMoHinh, new { htmlAttributes = new { @class = "form-control", @placeholder= "Tên mô hình" } })
+                    @Html.ValidationMessageFor(model => model.TenMoHinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá bán" } })
+                    @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="width: 100%">
+                <div class="col-md-10">
+                    <textarea name="MoTa" placeholder="Mô tả thông tin mô hình"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="file" name="file" />
+                    @ViewBag.thongbao
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="date" name="Ngaycapnhat" class="form-control" placeholder="Ngày cập nhật" />
+                    @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control", @placeholder="Số lượng tồn kho" } })
+                    @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("MaCD")
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("MaNXB")
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 flex-button">
+                    <button type="submit" class="btn btn-new"> Thêm mới</button>
+                    <div>
+                        @Html.ActionLink("Trở về", "MoHinh")
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Asset/CSS/index.css" rel="stylesheet" />
+    <link href="~/Asset/CSS/product-details.css" rel="stylesheet" />
+    <link href="~/Asset/CSS/cart.css" rel="stylesheet" />
+    <link href="~/Asset/CSS/delivery.css" rel="stylesheet" />
+    <link href="~/Asset/CSS/intro.css" rel="stylesheet" />
+    <link href="~/Asset/CSS/hand.css" rel="stylesheet" />
+    <link href="~/Asset/CSS/conTact.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container" style="max-width: 1080px !important;">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Asset/Images/figure.jpg" alt="">
+                    </a>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <ul class="navbar_one">
+                    <li>
+                        <a href="">
+                            Yêu thích
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Cart","Cart")">
+                            Giỏ hàng
+                            <i class="fa-solid fa-cart-shopping"></i> @ViewBag.tongsl
+                        </a>
+                    </li>
+                    <li>
+                        @if(Session["IdKH"] != null)
+                        {
+                        <a href="@Url.Action("Logout", "Home")">@Session["fullName"]</a>
+                        }
+                        else
+                         {
+                            <a href="@Url.Action("Login", "Home")">
+                                    Đăng ký / Đăng nhập
+                             </a>
+
+                        }
+                        
+                    </li>
+                </ul>
+            </div>
+            <div class="header-bottom">
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-bars"></i>
+                        Danh mục sản phẩm
+                    </a>
+                    <ul class="subnav">
+                        @Html.Action("Chude", "Home")
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                <li><a href="@Url.Action("Intro", "Home")">Giới thiệu</a></li>
+                <li><a href="@Url.Action("Handbook", "Home")">Cẩm nang </a></li>
+                <li><a href="">Khuyến mãi</a></li>
+                <li><a href="">Tin tức</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
+            </div>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container" style="max-width: 1080px">
+            <div class="row pt-30">
+                <div class="col order-first">
+                    <div class="logo" style="width:150px; height:150px ">
+                        <a href="">
+                            <img style="width:100%; height:100%;" src="~/Asset/Images/logo-tin-bui-600x600.png" alt="">
+                        </a>
+                    </div>
+                    <p class="text-uc">website thuộc quyền sở hữu:</p>
+                    <span>Mô hình Figure - Shop mô hình Anime giá rẻ</span>
+                </div>
+                <div class="col">
+                    <h5 class="text-uc">danh mục sản phẩm</h5>
+                    <li><a href="">Mô Hình Anime</a></li>
+                    <li><a href="">mô Hình game</a></li>
+                    <li><a href="">Figma</a></li>
+                    <li><a href="">Bộ figure</a></li>
+                    <li><a href="">Action figure</a></li>
+                    <li><a href="">Revoitech</a></li>
+                </div>
+                <div class="col">
+                    <h5 class="text-uc">liên hệ</h5>
+                    <p>Mô Hình Figure - Shop Chuyên Bán Mô Hình Anime</p>
+                    <p>Địa Chỉ: </p>
+                    <p>Hotline:</p>
+                    <p>Email</p>
+                </div>
+                <div class="col order-last">
+                    <h5 class="text-uc">kết nối với mô hình figure</h5>
+                    <div class="icon">
+                        <a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                        <a href=""><i class="fa-solid fa-envelope"></i></a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const buyBtns = document.querySelectorAll('.js-view')
+        const modal = document.querySelector('.js-modal')
+        const modalcontainer = document.querySelector('.js-modal-product')
+        const closebuy = document.querySelector('.js-modal-close')
+
+        function showBuyTickets() {
+            modal.classList.add('open')
+        }
+
+        function closeBuyTickets() {
+            modal.classList.remove('open')
+        }
+
+        for (const buyBtn of buyBtns) {
+            buyBtn.addEventListener('click', showBuyTickets)
+        }
+
+        closebuy.addEventListener('click', closeBuyTickets)
+
+        modal.addEventListener('click', closeBuyTickets)
+
+        modalcontainer.addEventListener('click', function (even) {
+            even.stopPropagation()
+        })
+
+    </script>
+
+    <script>
+        let span = document.getElementsByTagName('span')
+        let product = document.getElementsByClassName('product')
+        let product_page = Math.ceil(product.length / 4)
+        let l = 0;
+        let moveper = 25;
+        let maxMove = 203;
+
+        // mobile view
+        let mobile_view = window.matchMedia("( max-width: 768px)");
+        if (mobile_view.matches) {
+            moveper = 50.36;
+            maxMove = 504;
+        }
+
+        let right_move = () => {
+            l = l + moveper;
+            if (product == 1) { l = 0; }
+            for (const i of product) {
+                if (l > maxMove) { l = l - moveper; }
+                i.style.left = '-' + l + '%';
+            }
+        }
+
+        let left_move = () => {
+            l = l - moveper;
+            if (l <= 0) { l = 0; }
+            for (const i of product) {
+                if (product_page > 1)
+                    i.style.left = '-' + l + '%';
+            }
+        }
+
+        span[1].onclick = () => { right_move(); }
+        span[0].onclick = () => { left_move(); }
+    </script>
+
+    <script>
+        const signinBtn = document.querySelector(' .signinBtn');
+        const signupBtn = document.querySelector(' .signupBtn');
+        const formBx = document.querySelector(' .formBx');
+        const body = document.querySelector('body')
+
+        signupBtn.onclick = function () {
+            formBx.classList.add('active')
+            body.classList.add('active')
+
+        }
+        signinBtn.onclick = function () {
+            formBx.classList.remove('active')
+            body.classList.remove('active')
+        }
+    </script>
+</body>
+</html>

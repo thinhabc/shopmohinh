@@ -1,0 +1,56 @@
+.text-center{
+    text-align: center;
+}
+.text-color{
+    color: #fa6e4f;
+}
+.ptb-40{
+    padding: 40px 0;
+}
+.hand{
+    margin-top: 130px;
+    width: 100%;
+}
+.hand-img{
+    position: relative;
+    padding-top: 60%;
+    background: url(/Asset/Images/banner-cam-nang.jpeg) top center / cover no-repeat;
+}
+.hand-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 40%;
+    right: 0;
+    width: 60%;
+    margin: auto;
+}
+.hand-content h2,
+.hand-content p{
+    text-align: center;
+    margin: 10px auto;
+    width: 648px;
+    font-weight: bolder;
+    text-shadow: 5px 5px 16px rgb(0 0 0 / 60%);
+}
+.hand-content h2{
+    font-size: 56px;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+}
+.hand-content p{
+    color: #f1f1f1;
+    font-size: 18px;
+}
+.intro-blog{
+    padding: 20px 0;
+}
+.hand-blog h2{
+    font-size: 20px;
+}
+.hand-blog p{
+    font-size: 18px;
+    color: #000000;
+    text-align: justify;
+}

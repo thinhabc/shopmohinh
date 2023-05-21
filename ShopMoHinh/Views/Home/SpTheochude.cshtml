@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ShopMoHinh.Models.MoHinh>
+@{
+    ViewBag.Title = "SpTheochude";
+    Layout = "~/Views/shopMohinh.cshtml";
+}
+<div class="container" style="max-width: 1080px; margin-top:130px;">
+    <div class="product-list">
+        @foreach (var mohinh in Model)
+        {
+        <div class="product-new" style="height: 280px;">
+            <a href="@Url.Action("Details","Home", new { id = mohinh.MaMoHinh })">
+                <picture>
+                    <img src="~/@mohinh.AnhBia" alt="">
+                </picture>
+                <div class="details size">
+                    <small class="text-uc">mô hình anime</small>
+                    <p>@mohinh.TenMoHinh</p>
+                    <span>@mohinh.GiaBan VND</span>
+                    <div class="button js-view">
+                        <span>Quick view</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        }
+    </div>
+</div>

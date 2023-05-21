@@ -1,0 +1,52 @@
+﻿@model ShopMoHinh.Models.KhachHang 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Form login-->
+<div class="modal">
+    <div class="modal__body">
+        <div class="auth-form">
+            <div class="auth-form__container">
+
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng Nhập</h3>
+                    <a href="@Url.Action("Register", "Home")"><span class="auth-form__switch-btn">Đăng Ký</span></a>
+                </div>
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                   
+                        @Html.TextBoxFor(m => m.TaiKhoan,"", new { @class = "auth-form__input", @placeholder = "Tài khoản của bạn" })
+                    
+                    </div>
+                    <div class="auth-form__group">
+                        @Html.PasswordFor(m => m.MatKhau, new { @class = "auth-form__input", @placeholder = "Mật khẩu của bạn" })
+                        
+                    </div>
+                    <p>@ViewBag.Thongbao</p>
+
+                </div>
+
+                <div class="auth-form__aside">
+                    <div class="auth-form__help">
+                        <a href="" class="auth-form__help-link">Quên mật khẩu</a>
+                        <span class="auth-form__help-gach"></span>
+                        <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
+                    </div>
+                </div>
+
+                <div class="auth-form__controls">
+                    <button class="btn btn-back"><a href="@Url.Action("Index", "Home")">TRỞ LẠI </a></button>
+                    <button type="submit" class="btn btn-primary">ĐĂNG NHẬP</button>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+</div>
+

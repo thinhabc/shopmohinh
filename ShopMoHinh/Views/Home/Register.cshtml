@@ -1,0 +1,70 @@
+﻿@model ShopMoHinh.Models.KhachHang
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <div class="auth-form">
+            <div class="auth-form__container">
+
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng ký</h3>
+                    <a href="@Url.Action("Login", "Home")"><span class="auth-form__switch-btn">Đăng Nhập</span></a>
+                </div>
+                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+            
+            <div class="auth-form__form">
+                <div class="auth-form__group">
+                    @Html.TextBoxFor(m => m.HoTen, "", new { @class = "auth-form__input", @placeholder = "Tên của bạn" })
+                    @ViewData["loi1"]
+                </div>
+                <div class="auth-form__group">
+                    @Html.TextBoxFor(m => m.TaiKhoan, "", new { @class = "auth-form__input", @placeholder = "Tài khoản của bạn" })
+                    @ViewData["loi2"]
+                </div>
+                <div class="auth-form__group">
+                    @Html.PasswordFor(m => m.MatKhau, new { @class = "auth-form__input", @placeholder = "Mật khẩu của bạn" })
+                    @ViewData["loi3"]
+                </div>
+                <div class="auth-form__group">
+                    @Html.TextBoxFor(m => m.Email, "", new { @class = "auth-form__input", @placeholder = "Email của bạn" })
+                    @ViewData["loi4"]
+                </div>
+                <div class="auth-form__group">
+                    @Html.TextBoxFor(m => m.DiachiKH, "", new { @class = "auth-form__input", @placeholder = "Địa chỉ của bạn" })
+                    @ViewData["loi5"]
+                </div>
+                <div class="auth-form__group">
+                    @Html.TextBoxFor(m => m.DienThoaiKH, "", new { @class = "auth-form__input", @placeholder = "Số điện thoại của bạn" })
+                    @ViewData["loi6"]
+                </div>
+                <div class="auth-form__group">
+                    <input type="date" class="auth-form__input" name="NgaySinh" placeholder="Ngày sinh của bạn" />
+                </div>
+
+            </div>
+
+                <div class="auth-form__aside">
+                    <p class="auth-form__policy-text">
+                        Bằng việc đăng ký, bạn đã đồng ý với shopee về
+                        <a href="" class="auth-fomr__policy-link">điều khoản dịch vụ</a>
+                        &
+                        <a href="" class="auth-fomr__policy-link">chính sách bảo mật</a>
+                    </p>
+                </div>
+
+                <div class="auth-form__controls">
+                    <button class="btn btn-back"><a href="@Url.Action("Login", "Home")">TRỞ LẠI</a></button>
+                    <button type="submit" class="btn btn-primary">ĐĂNG KÝ</button>
+                </div>
+             }
+            </div>
+        </div>
+    </div>
+</div>
+

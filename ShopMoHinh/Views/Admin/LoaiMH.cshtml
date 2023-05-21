@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ShopMoHinh.Models.ChuDe>
+
+@{
+    ViewBag.Title = "LoaiMH";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h4 style="text-align:center; color:springgreen">QUẢN LÝ CHỦ ĐỀ SẢN PHẨM SHOP MÔ HÌNH</h4>
+    <p>
+        @Html.ActionLink("Create New", "addNewCD")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã chủ đề
+            </th>
+            <th>
+                Tên chủ đề
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaCD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenChuDe)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Delete", "DeleteCD", new { id = item.MaCD })
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
+
+

@@ -1,0 +1,52 @@
+﻿@model ShopMoHinh.Models.Admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en" />
+    <link href="~/Asset/CSS/login.css" rel="stylesheet" />
+</head>
+<body>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="container">
+                <div class="form">
+                    <h2>Admin</h2>
+
+                    @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div class="inputBox">
+                            @Html.TextBoxFor(m => m.UserAdmin, "", new { @placeholder = "User Admin" })
+                            @ViewData["loi1"]
+                        </div>
+                        <div class="inputBox">
+                            @Html.PasswordFor(m => m.PassWord, new { @placeholder = "Password" })
+                            @ViewData["loi2"]
+                        </div>
+                        <div class="inputBox">
+                            <button type="submit" class=""> Login </button>
+                        </div>
+                        <p>@ViewBag.thongbao</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

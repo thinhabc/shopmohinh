@@ -1,0 +1,127 @@
+.mt-16{
+    margin-top: 16px;
+}
+.text{
+    text-align: center;
+}
+.contact-info{
+    background: #c1f2eb;
+}
+.contact-one{
+    margin-top: 130px;
+    width: 100%;
+}
+.contact-img{
+    position: relative;
+    padding-top: 60%;
+    background: url(/Asset/Images/banner-5-1.jpeg) top center / cover no-repeat;
+}
+.contact-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 40%;
+    right: 0;
+    width: 60%;
+    margin: auto;
+}
+.contact-content h2,
+.contact-content p{
+    text-align: center;
+    margin: 10px auto;
+    width: 648px;
+    font-weight: bolder;
+    text-shadow: 5px 5px 16px rgb(0 0 0 / 60%);
+}
+.contact-content h2{
+    font-size: 56px;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+}
+.contact-content p{
+    color: #f1f1f1;
+    font-size: 18px;
+}
+
+.btn_ani{
+    position: relative;
+    width: 170px;
+    height: 50px;
+    padding: 6px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    margin: auto;
+    transition: 1s;
+    overflow: hidden;
+    text-decoration: none;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+}
+.btn_ani:hover {
+    background: var(--clr);
+    box-shadow: 
+    0 0 30px var(--clr),
+    0 0 60px var(--clr),
+    0 0 100px var(--clr);
+}
+.btn_ani::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 400%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.33s * var(--i));
+}
+.btn_ani:hover::before{
+    width: 120%;
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.btn_ani::after{
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #000;
+    transition: 0.5s;
+}
+.btn_ani:hover:after{
+    background: var(--clr);
+    color: #fff;
+}
+.btn_ani span{
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    color: #fff;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: 0.5s;
+}
+.btn_ani:hover span{
+    opacity: 1;
+}
+
+.contact{
+    padding: 40px 0;
+}
+.contact p{
+    font-size: 16px;
+}
+.form label{
+    color: #222;
+    font-weight: bold;
+}
+.form .form-control{
+    margin: 10px 0;
+}

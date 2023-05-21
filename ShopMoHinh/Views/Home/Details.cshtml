@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/shopMohinh.cshtml";
+}
+
+<div class="container" style="max-width: 1080px; margin-top: 130px;">
+    <h1 class="text-uc text-header">trang chủ / Mô hình anime / Mô hình one piece</h1>
+    <div class="product-details">
+        <div class="product-details-img">
+            <img src="~/@Model.AnhBia" alt="">
+            <div class="list-img">
+                <img src="~/@Model.AnhBia" alt="">
+                <img src="~/@Model.AnhBia" alt="">
+                <img src="~/@Model.AnhBia" alt="">
+                <img src="~/@Model.AnhBia" alt="">
+            </div>
+        </div>
+
+        <div class="product-detail">
+            <div class="title">
+                <h1>
+                    @Model.TenMoHinh
+                </h1>
+            </div>
+            <div class="rice">
+                <span>Giá : @Model.GiaBan VND</span>
+            </div>
+            <div class="product-desc">
+                @Html.Raw(Model.MoTa)
+            </div>
+            <div class="add-cart">
+                <input type="number" value="1" class="number" max="5" min="1">
+                <a href="@Url.Action("addCart", "Cart", new { @maSP = @Model.MaMoHinh, @url = Request.Url.ToString()})"><button class="adds">Thêm vào giỏ hàng</button></a>
+            </div>
+        </div>
+
+        <div class="product-sidebar">
+            <h2 class="text-uc" style="margin-bottom: 20px;">Đọc kỹ lưu ý và lịch phát hành</h2>
+            <div class="widget pb-30">
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/44265.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <strong>Giao hàng miễn phí</strong>
+                            với đơn hàng từ 1.000.000đ trở lên
+                        </span>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/31714.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <strong>Giao hàng trên toàn quốc</strong>
+                            <br> 63 tỉnh thành
+                        </span>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/ten-lua.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <strong>Hoàn tiền lại 100%</strong>
+                            Nếu hàng hóa bị gặp lỗi
+                        </span>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/online-support.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <strong>Hotline hỗ trợ</strong>
+                            0923.867.916
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-uc" style="margin-bottom: 20px;">sản phẩm liên quan</h2>
+            <div class="widget">
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/tanjiro.jpg" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <a href="">
+                                Mô Hình Tanjiro Kamado Hinokami Với Thanh Kiếm Lửa Hơi Thở Mặt Trời 16cm
+                            </a><br>
+                            <strong>270K VND</strong>
+                        </span>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/sanji.jpg" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <a href="">
+                                Mô Hình Nhân Vật Sanji Hắc Cước Chân Lửa Cao 30cm Trang Trí Quà Tặng Sinh Nhật
+                            </a><br>
+                            <strong>370K VND</strong>
+                        </span>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="icon-inner">
+                        <img src="~/Asset/Images/uchiha.jpg" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <span>
+                            <a href="">
+                                Mô Hình Uchiha Obito Dạng Biến Đổi ADN Cao 25cm Trang Trí
+                            </a><br>
+                            <strong>450K VND</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
